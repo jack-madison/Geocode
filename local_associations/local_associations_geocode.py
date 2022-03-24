@@ -47,4 +47,4 @@ local_associations['long'][206] = 140.49059627273175
 local_associations_missing = local_associations[local_associations['lat'] == '']
 
 # Output the data to csv
-local_associations.to_csv('./local_associations_with_lat_lon.csv', index= False)
+local_associations.to_csv('./local_associations/local_associations_with_lat_lon.csv', index= False)
