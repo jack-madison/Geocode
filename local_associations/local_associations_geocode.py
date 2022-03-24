@@ -4,8 +4,10 @@ import numpy as np
 import requests
 import time
 
+from authentication import api_key
+
 # Read in the excel file containing the addresses to be geocoded
-local_associations = pd.read_excel("./local_associations.xlsx")
+local_associations = pd.read_excel("./local_associations/local_associations.xlsx")
 
 # Drop the column 'Unnamed: 6' as it is empty (most likely an excel error)
 local_associations = local_associations.drop(labels='Unnamed: 6', axis=1)
@@ -16,7 +18,7 @@ local_associations['long'] = ""
 local_associations['lat'] = ""
 
 # Specify the API key for the googlemaps client
-gmaps = googlemaps.Client('ENTER API KEY HERE')
+gmaps = googlemaps.Client(api_key)
 
 # Loop over the rows in local_associations
 for x in range(len(local_associations)):
